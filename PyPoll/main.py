@@ -8,16 +8,16 @@
 ###### The winner of the election based on popular vote.
 ###### As an example, your analysis should look similar to the one below:
 # Election Results
--------------------------
+#
 # Total Votes: 3521001
--------------------------
+#-------------------------
 #Khan: 63.000% (2218231)
 #Correy: 20.000% (704200)
 #Li: 14.000% (492940)
 #O'Tooley: 3.000% (105630)
--------------------------
+#-------------------------
 #Winner: Khan
--------------------------
+#-------------------------
 # In addition, your final script should both print the analysis to the terminal and export a text file with the result
 
 #modules 
@@ -30,9 +30,39 @@ data_File_csv_path = os.path.join("election_data.csv")
 
 #List of data
 
-No_Votes = []
+No_Votes = 0
 List_Candidates = []
 Percentage_per_Candidate = []
 No_Votes_per_Candidate = []
 Winner = []
+
+#Opening File and setting for Loops to calculate results
+
+with open(data_File_csv_path, newline="" ) as csvfile: 
+    csvreader = csv.reader(csvfile, delimiter=",")
+    data_header = next(csvreader)
+
+    for row in csvreader:
+        No_Votes = No_Votes + 1
+
+        List_Candidates.append(row[2])
+
+        for x in set(List_Candidates):
+            Winner.append(x)
+            x2 = List_Candidates.count(x)
+            
+            No_Votes_per_Candidate.append(x2)
+
+            x3 = (x2/No_Votes) *100
+            Percentage_per_Candidate.append(x3)
+
+        Winner_Vote_Total = max(No_Votes_per_Candidate)
+
+    Winner_Candidate = Winner[No_Votes_per_Candidate.index(Winner_Vote_Total)]
+
+    print("Total Votes: " + str(No_Votes))
+    
+
+        
+
 
