@@ -61,8 +61,17 @@ with open(data_File_csv_path, newline="" ) as csvfile:
     Winner_Candidate = Winner[No_Votes_per_Candidate.index(Winner_Vote_Total)]
 
     print("Total Votes: " + str(No_Votes))
+
+    for i in range(len(Winner)):
+            print(Winner[i] + ": " + str(Percentage_per_Candidate[i]) + "% (" + str(No_Votes_per_Candidate[i]) + ")")
+            print("And the Winner is: " + Winner_Candidate)
     
 
-        
+    with open('..', 'analysis', results.txt)
+        text.write ("Total Votes: " + str(No_Votes) + "\n")
+            for i in range(len(set(Winner))):
+                text.write(Winner[i] + ": " + str(Percentage_per_Candidate[i]) + "% (" +str(No_Votes[i]) + ")\n"))
+                text.write("And the Winner is: " + Winner_Candidate  + "\n")
+
 
 
